@@ -337,10 +337,10 @@ router.get('/ip', async (req, res, next) => {
         var Apikey = req.query.apikey;
 if(!Apikey) return res.json(loghandler.notparam)
 	if(listkey.includes(Apikey)){          
-       fetch(encodeURI(`https://supra-api.herokuapp.com/api/ip?quero=${quero}&apikey=supraz`))
+       fetch(encodeURI(`http://ipwho.is/${quero}`))
         .then(response => response.json())
         .then(data => {
-         var pais = data.pais;
+         var pais = data.country;
         var estado = data.estado;
         var cidade = data.cidade;
        var latitude = data.latitude; 
