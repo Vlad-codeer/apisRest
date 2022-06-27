@@ -348,6 +348,7 @@ if(!Apikey) return res.json(loghandler.notparam)
        var isp = data.isp;
        var as = data.as;
        var ip = data.ip;
+        var dominio = data.domain;    
              res.json({
                  criador : `${creator}`,
                  pais,
@@ -357,6 +358,7 @@ if(!Apikey) return res.json(loghandler.notparam)
                  longitude,
                  isp,
                  as,
+		 dominio,
                  ip
              })
          })
