@@ -305,6 +305,23 @@ if(!Apikey) return res.json(loghandler.notparam)
 res.json(loghandler.invalidKey)
 }        	    	 		
 })
+router.get('/cnpj', async (req, res, next) => {
+         quero = req.query.quero
+        var Apikey = req.query.apikey;
+if(!Apikey) return res.json(loghandler.notparam)
+	if(listkey.includes(Apikey)){                 fetch(encodeURI(`https://www.receitaws.com.br/v1/cnpj/${quero}`))
+        .then(response => response.json())
+        .then(data => {
+         var atividade_principal = data.atividade_principal;
+             res.json({
+                 criador : `${creator}`,
+                 atividade_principal,
+             })
+         })
+          } else {
+res.json(loghandler.invalidKey)
+}        	    	 		
+})
 router.get('/cep1', async (req, res, next) => {
          quero = req.query.quero
         var Apikey = req.query.apikey;
