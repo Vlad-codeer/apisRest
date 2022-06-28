@@ -337,7 +337,7 @@ router.get('/ip', async (req, res, next) => {
         var Apikey = req.query.apikey;
 if(!Apikey) return res.json(loghandler.notparam)
 	if(listkey.includes(Apikey)){          
-       fetch(encodeURI(`http://ipwho.is/${quero}`))
+       fetch(encodeURI(`https://supra-api.herokuapp.com/api/ip?quero=${quero}&apikey=supraz`))
         .then(response => response.json())
         .then(data => {
          var pais = data.country;
