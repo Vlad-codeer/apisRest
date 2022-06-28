@@ -343,18 +343,24 @@ if(!Apikey) return res.json(loghandler.notparam)
          var pais = data.country;
 	 var success = data.success;
         var estado = data.estado;
-        var cidade = data.cidade;
+        var cidade = data.city;
+	var org = data.org;
+        var timezone = data.timezone;
        var latitude = data.latitude; 
        var longitude = data.longitude;
        var isp = data.isp;
+       var cep = data.org;
        var as = data.as;
        var ip = data.ip;
         var dominio = data.domain;    
              res.json({
                  criador : `${creator}`,
 		 success,
+		 timezone,
                  pais,
                  estado,
+		 ogr;
+		 cep,
                  cidade,
                  latitude,
                  longitude,
