@@ -350,6 +350,33 @@ res.json(loghandler.invalidKey)
 }        	    	 		
 })
 
+router.get('/cnpj', async (req, res, next) => {
+         quero = req.query.quero
+        var Apikey = req.query.apikey;
+if(!Apikey) return res.json(loghandler.notparam)
+	if(listkey.includes(Apikey)){            
+	fetch(encodeURI(`https://www.receitaws.com.br/v1/cnpj/${quero}`))
+        .then(response => response.json())
+        .then(data => {
+         var tipo = data.tipo;
+        var estado = data.estado;
+        var cidade = data.cidade;
+       var lugar = data.lugar; 
+       var rua = data.rua;
+             res.json({
+                 criador : `${creator}`,
+                 tipo,
+                 estado,
+                 cidade,
+                 lugar,
+                 rua
+             })
+         })
+          } else {
+res.json(loghandler.invalidKey)
+}        	    	 		
+})
+
 router.get('/ip', async (req, res, next) => {
          quero = req.query.quero
         var Apikey = req.query.apikey;
