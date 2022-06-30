@@ -328,17 +328,17 @@ router.get('/cep1', async (req, res, next) => {
         var Apikey = req.query.apikey;
 if(!Apikey) return res.json(loghandler.notparam)
 	if(listkey.includes(Apikey)){          
-       fetch(encodeURI(`https://supra-api.herokuapp.com/api/cep1?quero=${quero}&apikey=supraz`))
+       fetch(encodeURI(`https://publica.cnpj.ws/cnpj/${quero}`))
         .then(response => response.json())
         .then(data => {
-         var cep = data.cep;
+         var razao_social = data.razao_social;
         var estado = data.estado;
         var cidade = data.cidade;
        var lugar = data.lugar; 
        var rua = data.rua;
              res.json({
                  criador : `${creator}`,
-                 cep,
+                 razao_social,
                  estado,
                  cidade,
                  lugar,
